@@ -93,6 +93,12 @@ const locations = [
         "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
         "button functions": [restart, restart, restart],
         text: "You defeat the dragon! YOU WIN THE GAME! 🎉"
+    },
+    {
+        name: "easter egg",
+        "button text": ["2", "8", "Go to town square?"],
+        "button functions": [pickTwo, pickEight, goTown],
+        text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!"
     }
 ];
 
@@ -263,4 +269,27 @@ function restart(){
     healthText.innerText = health;
     xpText.innerText = xp;
     goTown();
+}
+
+function easterEgg(){
+    update(locations[7]);
+}
+
+function pick(guess){
+    const numbers = [];
+    while(numbers.length < 10){
+        numbers.push(Math.floor(Math.random() * 11));
+    }
+    text.innerText = "You picked "+guess+". Here are the random numbers:\n";
+    for (let x = 1; x < 5; x++) {
+
+    }
+}
+
+function pickTwo(){
+    pick(2);
+}
+
+function pickEight(){
+    pick(8);
 }
